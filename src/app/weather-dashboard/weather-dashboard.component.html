@@ -1,4 +1,8 @@
 <app-nav-bar></app-nav-bar>
-<div class="col-md-4 mb-4 container" *ngFor="let city of cities">
-    <app-weather [cityName]="city"></app-weather>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let city of cities">
+            <app-weather [cityName]="city" (cityClick)="handleCityClick($event)"></app-weather>
+        </div>
+    </div>
 </div>

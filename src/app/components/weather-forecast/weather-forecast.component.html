@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h5 class="modal-title">Weather Forecast</h5>
+</div>
+  <div class="modal-body">
+    <div *ngIf="data != null && error == null" class="weather-container" [attr.aria-label]="'{{ name }}\'s forecast weather'">
+      <img *ngIf="getWeatherIconURL() != null" class="weather-icon" [src]="getWeatherIconURL()"  />
+  
+      <div class="city-name">{{ name }}</div>
+      <div class="line-height-condenced text-muted text-tiny">
+        <div>Updated at:</div>
+        <div class="font-weight-semibold">{{ data.current.dt | unixTimestamp: 'datetime' }}</div>
+      </div>
+  
+      <div class="mt-4 text-tiny">
+        <div class="font-weight-semibold">Forecast (Next 5 Hours)</div>
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Temp</th>
+            <th scope="col">Wind Speed</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let hourly of data?.hourly?.slice(1, 6)">
+            <td>{{ hourly.dt | unixTimestamp: 'time' }}</td>
+            <td>{{ hourly.temp  }}°C</td>
+            <td>{{ hourly.wind_speed }}km/h</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <div *ngIf="error != null" class="weather-container text-danger">
+      Data cannot be retrieved from the server.<br />
+      Error: {{ error }}
+    </div>

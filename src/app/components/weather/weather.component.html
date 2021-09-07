@@ -6,8 +6,8 @@
             </div>
             <div class="temperature">{{ data?.main?.temp }}°C</div>
             <img *ngIf="getWeatherIconURL() != null" class="weather-icon" [src]="getWeatherIconURL()"  />
-            <div class="humidity">{{ data?.main?.humidity }}%</div>
-            <div class="wind-speed">{{ data?.wind?.speed }}</div>
+            <div class="humidity"><label>Humidity:</label> {{ data?.main?.humidity }}%</div>
+            <div class="wind-speed"><label>Wind speed:</label> {{ data?.wind?.speed }}km/h</div>
         </div>
     </div>
     <div *ngIf="error != null" class="weather-container text-danger">
