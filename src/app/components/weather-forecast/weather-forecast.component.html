@@ -25,7 +25,7 @@
           <tr *ngFor="let hourly of data?.hourly?.slice(1, 6)">
             <td>{{ hourly.dt | unixTimestamp: 'time' }}</td>
             <td>{{ hourly.temp  }}°C</td>
-            <td>{{ hourly.wind_speed }}km/h</td>
+            <td>{{ hourly.wind_speed }}m/s</td>
           </tr>
           </tbody>
         </table>

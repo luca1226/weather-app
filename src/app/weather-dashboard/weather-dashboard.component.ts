@@ -9,15 +9,15 @@ import { WeatherClick } from '../models/weather-click.model';
   styleUrls: ['./weather-dashboard.component.scss']
 })
 export class WeatherDashboardComponent implements OnInit {
-  public cities:string[] = ['Amsterdam', 'Geneve', 'Napoli', 'London', 'Paris'];
+  public cities:string[] = ['Amsterdam', 'Geneve', 'Napoli', 'London', 'Paris', 'Copenhagen'];
 
   public units: string = 'metric';
 
 
-    /**
-   * It will be fired When an item is clicked
-   */
-     @Output() cityClick = new EventEmitter<WeatherClick>();
+  /**
+  * It will be fired When an item is clicked
+  */
+  @Output() cityClick = new EventEmitter<WeatherClick>();
 
   
   constructor(private modalService: NgbModal) { }

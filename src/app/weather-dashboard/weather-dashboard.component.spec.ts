@@ -22,4 +22,5 @@ describe('WeatherDashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

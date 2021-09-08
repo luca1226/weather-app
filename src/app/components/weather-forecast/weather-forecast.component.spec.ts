@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { WeatherForecastComponent } from './weather-forecast.component';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 describe('WeatherForecastComponent', () => {
   let component: WeatherForecastComponent;
@@ -8,7 +10,9 @@ describe('WeatherForecastComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WeatherForecastComponent ]
+      declarations: [ WeatherForecastComponent ],
+      imports:[HttpClientTestingModule],
+      providers:[NgbActiveModal]
     })
     .compileComponents();
   });
