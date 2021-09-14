@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { Weather } from 'src/app/models/weather.model';
 import { WeatherClick } from 'src/app/models/weather-click.model';
 import { ApiService } from 'src/app/providers/api.service';
@@ -8,7 +8,7 @@ import { ApiService } from 'src/app/providers/api.service';
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss']
 })
-export class WeatherComponent implements OnInit {
+export class WeatherComponent implements OnChanges {
   @Input() cityName!: string;
   public data: Weather |undefined;
   public error: string | undefined;
@@ -28,6 +28,7 @@ export class WeatherComponent implements OnInit {
     this.getWeatherData(this.cityName);
   }
 
+  
   /**
    * Fetch data from the backend
    * @param cityName
