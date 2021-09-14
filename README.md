@@ -1,4 +1,4 @@
-# WeatherAppBackbase
+# WeatherApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
 
@@ -29,7 +29,6 @@ project
 │        └─── weather-dashboard
 │   └─── assets 
 │   └─── environments
-│   │    backbase.png
 │   │    index.html
 │   │    main.ts
 │   │    polyfills.ts
