@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angu
 import { Weather } from 'src/app/models/weather.model';
 import { WeatherClick } from 'src/app/models/weather-click.model';
 import { ApiService } from 'src/app/providers/api.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-weather',
@@ -13,6 +14,7 @@ export class WeatherComponent implements OnChanges {
   public data: Weather |undefined;
   public error: string | undefined;
 
+  private subscription: Subscription = new Subscription();
   /**
   * It will be fired When weather box is clicked
   */
@@ -28,13 +30,16 @@ export class WeatherComponent implements OnChanges {
     this.getWeatherData(this.cityName);
   }
 
+  ngOnDestroy():void{
+    this.subscription.unsubscribe();
+  }
   
   /**
    * Fetch data from the backend
    * @param cityName
    */
   public getWeatherData(cityName:string):void{
-  this.apiService.getCityWeather(cityName).subscribe(
+  this.subscription =this.apiService.getCityWeather(cityName).subscribe(
     (response:Weather)=>{
     this.data = response;
   },(error)=>{
