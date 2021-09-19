@@ -4,5 +4,11 @@
         <div class="col-md-4 mb-4" *ngFor="let city of cities">
             <app-weather [cityName]="city" (cityClick)="handleCityClick($event)"></app-weather>
         </div>
+        <div class="col-md-4 mb-4">
+            <div>
+                  <label for="new-city-name" >New City : </label>
+                  <input type="text" id="new-city-name" #newCity placeholder="Eg: Madrid" />
+                  <button type="submit" class="btn btn-primary" (click)="addNewCity(newCity.value)" aria-label="Add New City Button">Submit</button>
+            </div>
     </div>
 </div>

@@ -9,7 +9,7 @@ import { WeatherClick } from '../models/weather-click.model';
   styleUrls: ['./weather-dashboard.component.scss']
 })
 export class WeatherDashboardComponent implements OnInit {
-  public cities:string[] = ['Amsterdam', 'Geneve', 'Napoli', 'London', 'Paris', 'Copenhagen'];
+  public cities:string[] = ['Amsterdam', 'Geneve', 'Napoli', 'London', 'Paris'];
 
   public units: string = 'metric';
 
@@ -35,6 +35,12 @@ export class WeatherDashboardComponent implements OnInit {
     modalRef.componentInstance.lat = event.lat;
     modalRef.componentInstance.name = event.name;
     modalRef.componentInstance.units = this.units;
+  }
+
+  addNewCity =(value: string)=>{
+    if(value != ''){
+      this.cities.push(value)
+    }
   }
 
 }
