@@ -6,11 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Assignment
+## Explanation
 
-I have created a angular app to retrieve data from the [Open Weather API](https://openweathermap.org/current).
-We have a APIService that retrieve the data from the API and the weather-component uses these data to show them to the user.
-The user can click on one of the weather component to have more details of this city with the next forecast hours.
+This little project shows us the weather of a city coming from [Open Weather API](https://openweathermap.org/current). By clicking on a city you can show the next 5 hours of forecast weather. You can as well add new city to watch their weather.
+
 
 ## Directory Structure
 
