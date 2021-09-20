@@ -41,6 +41,7 @@ export class WeatherDashboardComponent implements OnInit {
     if(value != ''){
       this.cities.push(value)
     }
+
   }
 
 }
