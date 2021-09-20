@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { WeatherForecastComponent } from '../components/weather-forecast/weather-forecast.component';
 import { WeatherClick } from '../models/weather-click.model';
@@ -13,6 +13,7 @@ export class WeatherDashboardComponent implements OnInit {
 
   public units: string = 'metric';
 
+  @ViewChild('newCity') newCity!: ElementRef;
 
   /**
   * It will be fired When an item is clicked
@@ -38,10 +39,10 @@ export class WeatherDashboardComponent implements OnInit {
   }
 
   addNewCity =(value: string)=>{
-    if(value != ''){
+    if(value){
       this.cities.push(value)
     }
-
+    this.newCity.nativeElement.value = '';
   }
 
 }
