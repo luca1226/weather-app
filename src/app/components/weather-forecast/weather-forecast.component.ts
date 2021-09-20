@@ -39,7 +39,7 @@ export class WeatherForecastComponent implements OnInit {
     this.error = undefined;
 
     this.apiService.getCityForecastWeather(lon, lat, units).subscribe(
-      (response: any) => {
+      (response: WeatherForecast) => {
         console.log(response)
         this.data = response;
       },

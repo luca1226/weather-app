@@ -42,6 +42,7 @@ export class WeatherComponent implements OnChanges {
   this.subscription =this.apiService.getCityWeather(cityName).subscribe(
     (response:Weather)=>{
     this.data = response;
+    this.data.wind.speed = +(this.data.wind.speed * ((60*60)/1000)).toFixed(2);
   },(error)=>{
     if (error.status == 404) {
       this.error = `${this.cityName} is not found`;
