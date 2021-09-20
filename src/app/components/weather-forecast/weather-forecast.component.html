@@ -3,7 +3,7 @@
 </div>
   <div class="modal-body">
     <div *ngIf="data != null && error == null" class="weather-container" [attr.aria-label]="'{{ name }}\'s forecast weather'">
-      <img *ngIf="getWeatherIconURL() != null" class="weather-icon" [src]="getWeatherIconURL()"  />
+      <img *ngIf="getWeatherIconURL(data.current.weather[0].icon) != null" class="weather-icon" [src]="getWeatherIconURL(data.current.weather[0].icon)"  />
   
       <div class="city-name">{{ name }}</div>
       <div class="line-height-condenced text-muted text-tiny">
@@ -19,6 +19,7 @@
             <th scope="col">#</th>
             <th scope="col">Temp</th>
             <th scope="col">Wind Speed</th>
+            <th scope="col">Icon</th>
           </tr>
           </thead>
           <tbody>
@@ -26,6 +27,7 @@
             <td>{{ hourly.dt | unixTimestamp: 'time' }}</td>
             <td>{{ hourly.temp  }}°C</td>
             <td>{{ hourly.wind_speed }}m/s</td>
+            <td><img *ngIf="getWeatherIconURL(hourly.weather[0].icon) != null" class="weather-forecast-icon" [src]="getWeatherIconURL(hourly.weather[0].icon)"  /></td>
           </tr>
           </tbody>
         </table>

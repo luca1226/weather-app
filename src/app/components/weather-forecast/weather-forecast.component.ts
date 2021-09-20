@@ -56,9 +56,9 @@ export class WeatherForecastComponent implements OnInit {
   /**
    * Get the weather icon URL
    */
-   public getWeatherIconURL(): string | null {
+   public getWeatherIconURL(icon:string): string | null {
     if (this.data != null && this.data.current.weather && this.data.current.weather.length > 0) {
-      return `https://openweathermap.org/img/wn/${this.data.current.weather[0].icon}.png`;
+      return `https://openweathermap.org/img/wn/${icon}.png`;
     } else {
       return null;
     }

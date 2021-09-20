@@ -8,5 +8,6 @@ export interface WeatherForecast {
       temp: number,
       feels_like: number,
       wind_speed: number,
+      weather: Array<{icon: string}>
     }>,
 }
